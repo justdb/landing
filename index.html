@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>JustDB — Coming Soon</title>
+<meta name="description" content="JustDB — Declarative database-as-code for Java. 开发中，敬请期待。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f1220'/%3E%3Cellipse cx='16' cy='10' rx='9' ry='4' fill='none' stroke='%237c8cff' stroke-width='2'/%3E%3Cpath d='M7 10v12c0 2.2 4 4 9 4s9-1.8 9-4V10' fill='none' stroke='%237c8cff' stroke-width='2'/%3E%3Cpath d='M7 16c0 2.2 4 4 9 4s9-1.8 9-4' fill='none' stroke='%237c8cff' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0f1220;
+    --accent: #7c8cff;
+    --accent2: #4fd1c5;
+    --text: #e8eaf6;
+    --muted: #9aa1c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% -10%, rgba(124, 140, 255, .18), transparent),
+      radial-gradient(ellipse 70% 55% at 15% 110%, rgba(79, 209, 197, .12), transparent),
+      var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  /* subtle grid */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 30%, transparent 75%);
+    pointer-events: none;
+  }
+  main {
+    position: relative;
+    text-align: center;
+    padding: 48px 24px;
+    max-width: 640px;
+    animation: rise .8s ease-out both;
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .logo { width: 88px; height: 88px; margin: 0 auto 28px; }
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: .5px;
+    background: linear-gradient(120deg, var(--text) 30%, var(--accent) 70%, var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .tagline {
+    margin-top: 14px;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .tagline code {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+    color: var(--accent2);
+    background: rgba(79, 209, 197, .08);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: .92em;
+  }
+  .soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 36px;
+    padding: 12px 28px;
+    border: 1px solid rgba(124, 140, 255, .35);
+    border-radius: 999px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--text);
+    background: rgba(124, 140, 255, .07);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.8); } }
+  .lang { margin-top: 10px; font-size: .85rem; color: var(--muted); letter-spacing: 4px; }
+  footer { margin-top: 56px; }
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .9rem;
+    border-bottom: 1px dashed rgba(154, 161, 192, .4);
+    padding-bottom: 2px;
+    transition: color .2s;
+  }
+  footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<main>
+  <svg class="logo" viewBox="0 0 96 96" fill="none" aria-hidden="true">
+    <ellipse cx="48" cy="28" rx="28" ry="11" stroke="url(#g)" stroke-width="4"/>
+    <path d="M20 28v40c0 6.1 12.5 11 28 11s28-4.9 28-11V28" stroke="url(#g)" stroke-width="4"/>
+    <path d="M20 48c0 6.1 12.5 11 28 11s28-4.9 28-11" stroke="url(#g)" stroke-width="4"/>
+    <defs>
+      <linearGradient id="g" x1="20" y1="20" x2="76" y2="80" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#7c8cff"/><stop offset="1" stop-color="#4fd1c5"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <h1>JustDB</h1>
+  <p class="tagline">声明式 <code>Database-as-Code</code>，为 Java 而生<br>Declarative database-as-code for Java &amp; Spring Boot</p>
+
+  <div class="soon"><span class="dot"></span>COMING&nbsp;SOON</div>
+  <p class="lang">开 发 中 · 敬 请 期 待</p>
+
+  <footer>
+    <a href="https://github.com/justdb" target="_blank" rel="noopener">github.com/justdb</a>
+  </footer>
+</main>
+</body>
+</html>
